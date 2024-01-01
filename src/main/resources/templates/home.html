@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        header {
+            background-color: #606B94;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 800px;
+            margin-top: 30px;
+        }
+
+        .expense-card {
+            background-color: #f5f7fa;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: box-shadow 0.3s;
+        }
+
+        .expense-card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .expense-card .card-body {
+            padding: 20px;
+        }
+
+        .expense-card h5 {
+            color: #2d6187;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .expense-card p {
+            color: #5e6c84;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .action-buttons .btn {
+            margin-top: 15px;
+            font-size: 1.2em;
+            border-radius: 5px;
+        }
+
+        .edit-btn {
+            background-color: #1D8F94;
+            color: #ffffff;
+            transition: background-color 0.3s;
+        }
+
+        .edit-btn:hover {
+            background-color: #156e75;
+        }
+
+        .delete-btn {
+            background-color: #EB6662;
+            color: #ffffff;
+            transition: background-color 0.3s;
+        }
+
+        .delete-btn:hover {
+            background-color: #c85550;
+        }
+
+        .add-expense-btn {
+            background-color: #6AC1DE;
+            color: #ffffff;
+            border: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .add-expense-btn:hover {
+            background-color: #5aadd6;
+        }
+
+        .footer {
+            margin-top: 30px;
+            color: #868e96;
+        }
+    </style>
+</head>
+<body>
+
+<header style="font-family: 'Poppins', sans-serif;">
+    <h1 style="font-weight: bold; font-size: 4em;">EXPENSE TRACKER</h1>
+</header>
+
+<div class="container">
+    <a th:href="@{/expenses}" class="btn add-expense-btn">Add Expense</a>
+    <div th:each="expense : ${expenses}" class="card expense-card">
+        <div class="card-body">
+            <h5 th:text="${expense.description}"></h5>
+            <p th:text="${expense.note}"></p>
+            <p th:text="${expense.amount}"></p>
+            <div class="action-buttons">
+                <!-- Add links for edit and delete actions -->
+                <a th:href="@{'/expenses/edit/' + ${expense.id}}" class="btn edit-btn">Edit</a>
+                <a th:href="@{'/expenses/delete/' + ${expense.id}}" class="btn delete-btn">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

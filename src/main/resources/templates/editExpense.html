@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Edit Expense</title>
+</head>
+<body>
+<h1>Edit Expense</h1>
+
+<ul>
+    <li th:each="expense : ${expenses}">
+        <a th:href="@{'/expenses/edit/' + ${expense.id}}" th:text="${expense.description}"></a>
+        <a th:href="@{/expenses/edit/{id}(id=${expense.id})}">Edit</a>
+    </li>
+</ul>
+
+</body>
+</html>
