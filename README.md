@@ -10,6 +10,13 @@ A expense tracker application to manage your finances efficiently.
   - **Delete Expenses:** Remove unwanted or incorrect entries.
   - **Update/Edit Expenses:** Modify existing expenses for accuracy.
 
+## Technologies Used
+
+- Frontend: [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- Backend: [MySQL](https://www.mysql.com/)
+- Styling: [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- Deployment: [GitHub Pages](https://pages.github.com/)
+
 ## Screenshots
 ![image](https://github.com/shivaniharane/expense_tracker/assets/155101904/8bdfc506-0803-429b-be38-1abafcdeaf00)
 ![image](https://github.com/shivaniharane/expense_tracker/assets/155101904/8fabc5d2-30a8-4737-8e5f-7aa78b831ba2)
